@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY_PRODUCTION")
 
 # ALLOWED HOSTS
 ALLOWED_HOSTS=[
-    os.environ.get("PRODUCTION_HOST")
+    os.environ.get("HEROKU_HOST")
 ]
 
 DATABASES = {
