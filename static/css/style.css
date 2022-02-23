@@ -89,6 +89,10 @@ a.navbar-item:hover {
     border-radius: 50%;
 }
 
+.card-content hr:last-child {
+    display: none;
+}
+
 .media-center {
     display: block;
     margin-bottom: 1rem;
@@ -124,12 +128,25 @@ div.column.is-8:first-child {
     margin: 0 6rem;
 }
 
+.txt-right {
+    text-align: right;
+}
+
 .promo-block .container {
     margin: 1rem 5rem;
 }
 
 .block:not(:last-child) {
     margin-bottom: 1.5rem;
+}
+
+.pagination-link {
+    background-color: #fff1c2;
+}
+
+.pagination-link.is-current {
+    background-color: #3e8ed0;
+    border: none;
 }
 
 .footer {

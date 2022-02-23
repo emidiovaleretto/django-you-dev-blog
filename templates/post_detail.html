@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="hero is-info is-medium is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <!-- <h1 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua</h1> -->
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- START ARTICLE FEED -->
+        <section class="articles">
+            <div class="column is-8 is-offset-2">
+                <!-- START ARTICLE -->
+                <div class="card article">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-center">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                    class="author-image" alt="Placeholder image">
+                                {% else %}
+                                <img src="{{ post.featured_image.url }}" class="author-image" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="media-content has-text-centered">
+                                <p class="title article-title">{{ post.title}}</p>
+                                <div class="tags has-addons level-item">
+                                    <span class="tag is-rounded is-info">@{{ post.author }}</span>
+                                    <span class="tag is-rounded">{{ post.created_on }}</span>
+                                    <span class="tag is-rounded">{{ post.excerpt }}</span>
+                                </div>
+                                <span class="icon">
+                                    <i class="fas fa-heart has-text-danger"></i>
+                                    <span class="ml-1 has-text-weight-semibold">{{ post.number_of_likes }}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="content article-body">
+                            <div class="content">
+                                <div class="block">
+                                    <p>{{ post.content | safe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            {% with comments.count as total_comments %}
+                            <span class="icon-text">
+                                <span class="icon">
+                                  <i class="far fa-comments"></i>
+                                </span>
+                                <span>{{ total_comments }}</span>
+                              </span>
+                            {% endwith %}
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="section m-6">
+                            <h3>Comments:</h3>
+                            <div class="card-content">
+                                {% for comment in comments %}
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4">{{ comment.name }}</p>
+                                        <p class="subtitle is-6">@{{ comment.name }}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="content is-small">
+                                    {{ comment.body | linebreaks }}
+                                    <br>
+                                    <time datetime="DD-MM-YYYYThh:mm:ssTZD">{{ comment.created_on }}</time>
+                                </div>
+                                <hr class="navbar-divider">
+                                {% endfor %}
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
