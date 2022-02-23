@@ -32,7 +32,7 @@ body {
     position: relative;
 }
 
-.navbar-start a.navbar-item:not(:last-child)::after  {
+.navbar-start a.navbar-item::after  {
     content: "";
     display: block;
     height: 2px;
@@ -60,12 +60,19 @@ a.navbar-item:hover {
 }
 
 .hero-body {
-    background-color: #101010;
     background-image: url("/static/img/hero-image.jpg");
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 600px;
+}
+
+.hero-body-2 {
+    background-image: url("https://a-static.besthdwallpaper.com/funny-python-coding-wallpaper-3840x2160-84082_54.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
 }
 
 .articles {
@@ -126,6 +133,11 @@ div.column.is-8:first-child {
 .article-body {
     line-height: 1.4;
     margin: 0 6rem;
+}
+
+.media-content {
+    margin-top: 0;
+    margin-bottom: 40px;
 }
 
 .txt-right {
