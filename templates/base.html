@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>You Dev Blog | A technology diary</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!-- START NAV -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/2560px-Python_logo_and_wordmark.svg.png"
+                        width="120" height="40" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active">
+                        Home
+                    </a>
+                    <a class="navbar-item">
+                        Examples
+                    </a>
+                    <a class="navbar-item">
+                        Features
+                    </a>
+                    <a class="navbar-item">
+                        Team
+                    </a>
+                    <a class="navbar-item">
+                        Archives
+                    </a>
+                    <a class="navbar-item">
+                        Help
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Account
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Dashboard
+                            </a>
+                            <a class="navbar-item">
+                                Profile
+                            </a>
+                            <a class="navbar-item">
+                                Settings
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <span>Made with <i class="fas fa-heart has-text-danger"></i> by <a href="https://github.com/emidiovaleretto"
+                aria-label="Visit my portfolio on GitHub (opens in a new tab)" target="_blank"
+                rel="noopener">Emidio
+                Valereto</a> <i class="far fa-hand-spock"></i></span>
+        </div>
+      </footer>
+
+    <script async type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+</body>
+
+</html>
