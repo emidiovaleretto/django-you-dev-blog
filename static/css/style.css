@@ -131,3 +131,18 @@ div.column.is-8:first-child {
 .block:not(:last-child) {
     margin-bottom: 1.5rem;
 }
+
+.footer {
+    background-color: #3e8ed0;
+    padding: 2rem 1.5rem 2rem;
+}
+
+.footer a {
+    color: #FED346;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #ffecaf;
+}
