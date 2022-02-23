@@ -26,6 +26,35 @@ body {
     font-weight: bold;
 }
 
+.navbar-start a {
+    display: inline-block;
+    padding: 16px 0;
+    position: relative;
+}
+
+.navbar-start a.navbar-item:not(:last-child)::after  {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #ffffff;
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.navbar-start a.navbar-item:hover::after {
+    width: 100%;
+}
+
+a.navbar-item:hover {
+    background-color: transparent !important;
+}
+
+.navbar-item {
+    margin-left: 20px;
+}
+
 .navbar-item img {
     margin-top: 5px;
 }
