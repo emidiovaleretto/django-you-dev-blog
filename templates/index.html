@@ -3,11 +3,12 @@
 {% block content %}
 
 <section class="hero is-info is-medium is-bold">
-    <div class="hero-body">
+    <div class="hero-body overlay">
         <div class="container has-text-centered">
             <h1 class="title">Medium section</h1>
             <h2 class="subtitle">
-              A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading.
+                A simple container to divide your page into <strong>sections</strong>, like the one you're currently
+                reading.
             </h2>
         </div>
     </div>
@@ -25,10 +26,10 @@
                     <div class="media">
                         <div class="media-content has-text-centered">
                             {% if "placeholder" in post.featured_image.url %}
-                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    class="author-image" alt="Placeholder image">
+                            <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                class="author-image" alt="Placeholder image">
                             {% else %}
-                                <img src="{{ post.featured_image.url }}" class="author-image" alt="">
+                            <img src="{{ post.featured_image.url }}" class="author-image" alt="">
                             {% endif %}
                             <a href="{% url 'post_detail' post.slug %}">
                                 <p class="title article-title">{{ post.title}}</p>
@@ -51,7 +52,9 @@
                             habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel
                             facilisis volutpat. Non sodales neque sodales ut etiam.
                             Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.</p>
-                        <a href="{% url 'post_detail' post.slug %}"><p class="txt-right">Read More</p></a>
+                        <a href="{% url 'post_detail' post.slug %}">
+                            <p class="txt-right">Read More</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -61,9 +64,9 @@
                 {% endfor %}
             </div>
         </div>
-            <!-- END ARTICLE -->
+        <!-- END ARTICLE -->
     </section>
-    
+
     <!-- START PAGINATION -->
     {% if page_obj.has_other_pages %}
     <nav class="pagination is-centered is-rounded mb-6" role="navigation" aria-label="pagination">
