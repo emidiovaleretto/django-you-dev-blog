@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Fira+Sans:wght@400;500&display=swap');
 
+.os-scrollbar {
+    background-color: #ffecaf !important;
+}
+
+.os-scrollbar-handle {
+    background-color: #3e8ed0 !important;
+    outline: 1px solid #063564 !important;
+    height: 15% !important;
+}
+
 html,
 body {
     font-family: "Fira Code", sans-serif;
@@ -11,7 +21,7 @@ body {
     content: '';
     display: inline-block;
     width: 100%;
-    height: 2px;
+    height: 4px;
     background-color: #FED346;
     position: absolute;
     bottom: 0;
@@ -32,7 +42,7 @@ body {
     position: relative;
 }
 
-.navbar-start a.navbar-item::after  {
+.navbar-start a.navbar-item::after {
     content: "";
     display: block;
     height: 2px;
@@ -47,8 +57,20 @@ body {
     width: 100%;
 }
 
-a.navbar-item:hover {
+a.navbar-item:hover,
+a.navbar-link:hover {
     background-color: transparent !important;
+}
+
+a.navbar-link::before {
+    content: '';
+    display: inline-block;
+    background-color: #7fff00;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
 }
 
 .navbar-item {
@@ -59,8 +81,23 @@ a.navbar-item:hover {
     margin-top: 5px;
 }
 
+.navbar-burger {
+    margin-right: 16px;
+}
+
+.navbar-menu.is-active .navbar-start {
+    display: flex;
+    flex-direction: column;
+}
+
+.is-active .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -14px;
+}
+
 .hero-body {
-    background-image: url("/static/img/hero-image.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url("/static/img/hero-image.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -132,7 +169,7 @@ div.column.is-8:first-child {
 
 .article-body {
     line-height: 1.4;
-    margin: 0 6rem;
+    margin: 3rem;
 }
 
 .media-content {
