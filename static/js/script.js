@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     //The second argument has to be at least a empty object or a object with your desired options
     OverlayScrollbars(document.querySelectorAll("body"), {});
 
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        const $notification = $delete.parentNode;
+    
+        $delete.addEventListener('click', () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      });
+
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
