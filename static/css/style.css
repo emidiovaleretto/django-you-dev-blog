@@ -90,6 +90,10 @@ a.navbar-link::before {
     flex-direction: column;
 }
 
+.is-underline:hover {
+    text-decoration: underline;
+}
+
 .is-active .buttons {
     flex-direction: column;
     align-items: flex-start;
