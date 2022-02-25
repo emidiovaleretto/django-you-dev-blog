@@ -3,67 +3,59 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<section class="hero is-success is-fullheight">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <div class="column is-4 is-offset-4">
-        <div class="box">
-          <h1 class="title has-text-black">{% trans "Sign In" %}</h1>
-          <figure class="avatar">
-            <img src="https://user-images.githubusercontent.com/5709133/50445980-88299a80-0912-11e9-962a-6fd92fd18027.png">
-          </figure>
-          <div class="block">
-            <p>{% blocktrans %}If you have not created an account yet, then please
-              <a class="has-text-link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>      
-          </div>
-          <form class="login" method="POST" action="{% url 'account_login' %}">
-            {% csrf_token %}
-            <div class="field">
-              <div class="control">
-                <input class="input is-large" type="text" placeholder="e.g. alex.smith" autofocus="">
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <input class="input is-large" type="password" placeholder="********">
-              </div>
-            </div>
+<div class="container has-text-centered mt-4">
+  <div class="column is-half is-offset-one-quarter mr-2">
+    <div class="box">
+      <h2 class="title has-text-black">{% trans "Sign In" %}</h2>
+      <figure class="avatar">
+        <img src="https://user-images.githubusercontent.com/5709133/50445980-88299a80-0912-11e9-962a-6fd92fd18027.png">
+      </figure>
+      <div class="block">
+        <p>{% blocktrans %}Welcome to <strong>You Dev Blog</strong>. To leave a comment or like a post, please log in.
+          If you have not
+          created an account yet, then please
+          <a class="has-text-link is-underline" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      </div>
+      <div class="field">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+            {{ form.as_p }}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            <div class="field">
-              <label class="checkbox">
-                <input type="checkbox">
-                Remember me
-              </label>
-            </div>
             {% endif %}
-            <div class="block">
-              <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-            </div>    
-            <button class="primaryAction button is-warning is-block is-large is-fullwidth" type="submit">{% trans "Sign In" %}<i class="fa fa-sign-in"
-                aria-hidden="true"></i></button>
-          </form>
-        </div>
-        <p class="has-text-white">
-          <a href="{{ signup_url }}">Sign Up</a> &nbsp;·&nbsp;
-          <a href="{% url 'account_reset_password' %}">Forgot Password</a>
-        </p>
+            <button class="button is-warning is-large is-fullwidth" type="submit">{% trans "Sign In" %}</button>
+          </form>    
+          <!-- <p class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="text" placeholder="Username" required>
+            <span class="icon is-small is-left has-text-info-light">
+              <i class="fas fa-solid fa-user"></i>
+            </span>
+          </p> -->
       </div>
+        <!-- <div class="field">
+          <p class="control has-icons-left">
+            <input class="input is-medium" type="password" placeholder="Password" required>
+            <span class="icon is-small is-left has-text-info-light">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox">
+            Remember me
+          </label>
+        </div> -->
     </div>
+    <p class="mb-6">
+      <a class="is-underline" href="{{ signup_url }}">Sign Up</a> &nbsp;·&nbsp;
+      <a class="is-underline" href="{% url 'account_reset_password' %}">Forgot Password</a>
+    </p>
   </div>
-</section>
-<!-- <form class="login">
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form> -->
+</div>
 
 {% endblock %}

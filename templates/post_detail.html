@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 
 <section class="hero is-info is-medium is-bold">
@@ -106,7 +106,13 @@
                     <button class="button is-warning">Post comment</button>
                 </p>
             </div>
-                    {% else %}
+            {% else %}
+            <div class="notification is-warning">
+                <button class="delete"></button>
+                You must be logged in to post a comment. 
+                <p>If you have not created an account yet, then please
+                    <a class="has-text-link is-underline" href="{% url 'account_signup' %}">sign up</a> first.</p>
+                </div>
             <div class="field">
                 <p class="control">
                     <textarea class="textarea is-medium is-info has-fixed-size"

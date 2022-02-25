@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %}You Dev Blog | A daily dose of technology{% endblock %}
 {% block content %}
 
 <section class="hero is-info is-medium is-bold">
@@ -53,7 +53,7 @@
                             facilisis volutpat. Non sodales neque sodales ut etiam.
                             Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.</p>
                         <a href="{% url 'post_detail' post.slug %}">
-                            <p class="txt-right">Read More</p>
+                            <p class="txt-right is-underline">Read More</p>
                         </a>
                     </div>
                 </div>
