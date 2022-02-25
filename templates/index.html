@@ -6,10 +6,9 @@
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body overlay">
         <div class="container has-text-centered">
-            <h1 class="title">Medium section</h1>
-            <h2 class="subtitle">
-                A simple container to divide your page into <strong>sections</strong>, like the one you're currently
-                reading.
+            <h1 class="title is-1">Really learn Python</h1>
+            <h2 class="subtitle is-5 mt-6">
+                If you want to learn Python in 2020, you've come to the right place!!
             </h2>
         </div>
     </div>
@@ -19,7 +18,7 @@
 <div class="container">
     <!-- START ARTICLE FEED -->
     <section class="articles">
-        <div class="column is-8 is-offset-2">
+        <div class="column is-three-fifths is-offset-one-fifth">
             <!-- START ARTICLE -->
             {% for post in post_list %}
             <div class="card article">
@@ -33,26 +32,31 @@
                             <img src="{{ post.featured_image.url }}" class="author-image" alt="">
                             {% endif %}
                             <a href="{% url 'post_detail' post.slug %}">
-                                <p class="title article-title">{{ post.title}}</p>
+                                <h3 class="title article-title">{{ post.title}}</h3>
                             </a>
                             <div class="tags has-addons level-item">
                                 <span class="tag is-rounded is-info">@{{ post.author }}</span>
                                 <span class="tag is-rounded">{{ post.created_on }}</span>
-                                <span class="tag is-rounded">{{ post.excerpt }}</span>
+                                <span class="tag has-text-weight-semibold is-rounded is-warning">{{ post.excerpt }}</span>
                             </div>
                             <span class="icon">
                                 <i class="fas fa-heart has-text-danger"></i>
-                                <span class="ml-1 has-text-weight-semibold">{{ post.number_of_likes }}</span>
+                                <span class="ml-3 has-text-weight-semibold">{{ post.number_of_likes }}</span>
                             </span>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-image">
+                            {% if "placeholder" in post.avatar.url %}
+                            <figure class="image">
+                                <a href="{% url 'post_detail' post.slug %}"><img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt=""></a>
+                                {% else %}
+                                <a href="{% url 'post_detail' post.slug %}"><img src="{{ post.avatar.url }}" alt=""></a>
+                            </figure>
+                            {% endif %}    
+                        </div>
+                    </div>
                     <div class="content article-body">
-                        <p>Non arcu risus quis varius quam quisque. Dictum varius duis at consectetur lorem. Posuere
-                            sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. </p>
-                        <p>Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. In hac
-                            habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan lacus vel
-                            facilisis volutpat. Non sodales neque sodales ut etiam.
-                            Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.</p>
                         <a href="{% url 'post_detail' post.slug %}">
                             <p class="txt-right is-underline">Read More</p>
                         </a>
@@ -77,8 +81,8 @@
                 <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">&laquo;</a>
             </li>
             {% else %}
-            <li>
-                <a class="pagination-link">&laquo;</a>
+            <li class="page-item">
+                <a class="pagination-link" disabled>&laquo;</a>
             </li>
             {% endif %}
             {% for page in page_obj.paginator.page_range %}
@@ -97,8 +101,8 @@
                 <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">&raquo;</a>
             </li>
             {% else %}
-            <li class="page-item disabled">
-                <a class="pagination-link">&raquo;</a>
+            <li class="page-item">
+                <a class="pagination-link" disabled>&raquo;</a>
             </li>
             {% endif %}
         </ul>

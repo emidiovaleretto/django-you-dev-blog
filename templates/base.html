@@ -38,7 +38,7 @@
         <div class="navbar-start">
           <a href="{% url 'home' %}" class="navbar-item">Home</a>
           <a href="https://docs.python.org/3/" aria-label="See Python Documentation (opens in a new tab)"
-            target="_blank" rel="noopener" class="navbar-item">Documentation</a>
+            target="_blank" rel="noopener" class="navbar-item" title="Python Documentation">Documentation</a>
         </div>
 
         <div class="navbar-end">
@@ -50,12 +50,12 @@
                 <div class="navbar-dropdown">
                   <a class="navbar-item">View account</a>
                   <hr class="navbar-divider">
-                  <a href="{% url 'account_logout' %}" class="navbar-item">Logout</a>
+                  <a href="{% url 'account_logout' %}" class="navbar-item" title="Logout">Logout</a>
                 </div>
               </div>
               {% else %}
-              <a href="{% url 'account_login' %}" class="button is-light">Login</a>
-              <a href="{% url 'account_signup' %}" class="button is-warning">
+              <a href="{% url 'account_login' %}" class="button is-light" title="Login">Login</a>
+              <a href="{% url 'account_signup' %}" class="button is-warning" title="Sign up">
                 <strong>Sign up</strong>
               </a>
               {% endif %}

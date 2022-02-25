@@ -28,12 +28,23 @@
                             <div class="tags has-addons level-item">
                                 <span class="tag is-rounded is-info">@{{ post.author }}</span>
                                 <span class="tag is-rounded">{{ post.created_on }}</span>
-                                <span class="tag is-rounded">{{ post.excerpt }}</span>
+                                <span class="tag has-text-weight-semibold is-rounded is-warning">{{ post.excerpt }}</span>
                             </div>
                             <span class="icon">
                                 <i class="fas fa-heart has-text-danger"></i>
-                                <span class="ml-1 has-text-weight-semibold">{{ post.number_of_likes }}</span>
+                                <span class="ml-3 has-text-weight-semibold">{{ post.number_of_likes }}</span>
                             </span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image">
+                            {% if "placeholder" in post.avatar.url %}
+                            <figure class="image">
+                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
+                                {% else %}
+                                <img src="{{ post.avatar.url }}" alt="">
+                            </figure>
+                            {% endif %}    
                         </div>
                     </div>
                     <div class="content article-body">
