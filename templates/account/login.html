@@ -7,60 +7,62 @@
 
 {% block content %}
 
-<div class="container has-text-centered mt-4">
-  <div class="column is-half is-offset-one-quarter mr-2">
-    <div class="box">
-      <h2 class="title has-text-black">{% trans "Sign In" %}</h2>
-      <figure class="avatar">
-        <img src="https://user-images.githubusercontent.com/5709133/50445980-88299a80-0912-11e9-962a-6fd92fd18027.png">
-      </figure>
-      <div class="block">
-        <p>{% blocktrans %}Welcome to <strong>You Dev Blog</strong>. To leave a comment or like a post, please log in.
-          If you have not
-          created an account yet, then please
-          <a class="has-text-link is-underline" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-      </div>
-
-      {% if form.errors %}
+<section class="hero is-fullheight">
+  <div class="container has-text-centered mt-4">
+    <div class="column is-half is-offset-one-quarter mr-2 mt-4">
+      <div class="box">
+        <h2 class="title has-text-black">{% trans "Sign In" %}</h2>
+        <figure class="avatar">
+          <img src="https://user-images.githubusercontent.com/5709133/50445980-88299a80-0912-11e9-962a-6fd92fd18027.png">
+        </figure>
+        <div class="block">
+          <p>{% blocktrans %}Welcome to <strong>You Dev Blog</strong>. To leave a comment or like a post, please log in.
+            If you have not
+            created an account yet, then please
+            <a class="has-text-link is-underline" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        </div>
+        
+        {% if form.errors %}
         <div class="notification is-warning is-light">
           <button class="delete"></button>
             {{ form.non_field_errors }}
         </div>
-      {% endif %}
-
-      <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input id="id_login" name="login" class="input is-medium" type="text" placeholder="Username"
-              control-id="ControlID-2" required>
-            <span class="icon is-small is-left has-text-info">
-              <i class="fas fa-solid fa-user"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control has-icons-left">
-            <input id="id_password" name="password" class="input is-medium" type="password" placeholder="Password"
-              control-id="ControlID-3" required>
-            <span class="icon is-small is-left has-text-info">
-              <i class="fas fa-lock"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <label for="id_remember" class="checkbox">
-            <input id="id_remember" type="checkbox">
-            Remember me
-          </label>
-        </div>
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="button is-warning is-large is-fullwidth" type="submit">{% trans "Sign In" %}</button>
-      </form>
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input id="id_login" name="login" class="input is-medium" type="text" placeholder="Username"
+                control-id="ControlID-2" required>
+              <span class="icon is-small is-left has-text-info">
+                <i class="fas fa-solid fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input id="id_password" name="password" class="input is-medium" type="password" placeholder="Password"
+                control-id="ControlID-3" required>
+              <span class="icon is-small is-left has-text-info">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <label for="id_remember" class="checkbox">
+              <input id="id_remember" type="checkbox">
+              Remember me
+            </label>
+          </div>
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="button is-warning is-large is-fullwidth" type="submit">{% trans "Sign In" %}</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 {% endblock %}

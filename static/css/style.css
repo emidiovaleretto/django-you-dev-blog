@@ -195,6 +195,12 @@ div.column.is-8:first-child {
     margin-bottom: 40px;
 }
 
+.btn-like {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .txt-right {
     text-align: right;
 }
