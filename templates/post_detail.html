@@ -31,7 +31,8 @@
                             <div class="tags has-addons level-item">
                                 <span class="tag is-rounded is-info">@{{ post.author }}</span>
                                 <span class="tag is-rounded">{{ post.created_on }}</span>
-                                <span class="tag has-text-weight-semibold is-rounded is-warning">{{ post.excerpt }}</span>
+                                <span
+                                    class="tag has-text-weight-semibold is-rounded is-warning">{{ post.excerpt }}</span>
                             </div>
                             <span class="icon">
                                 <i class="fas fa-heart has-text-danger"></i>
@@ -47,7 +48,7 @@
                                 {% else %}
                                 <img src="{{ post.avatar.url }}" alt="">
                             </figure>
-                            {% endif %}    
+                            {% endif %}
                         </div>
                     </div>
                     <div class="content article-body">
@@ -111,6 +112,13 @@
         <div class="media-content">
             <div class="field">
                 <p class="control">
+                    {% if commented %}
+                    <div class="notification is-success">
+                        <button class="delete"></button>
+                        <p>Thank you! Your comment will be visible after approval.</p>
+                    </div>
+                    {% endif %}
+
                     {% if user.is_authenticated %}
                     <form method="POST" action="">
                         {% csrf_token %}
@@ -130,14 +138,15 @@
             {% else %}
             <div class="notification is-warning">
                 <button class="delete"></button>
-                You must be logged in to post a comment. 
+                <p>You must be logged in to post a comment. You can login <a class="has-text-link is-underline"
+                        href="{% url 'account_login' %}">here</a>.</p>
                 <p>If you have not created an account yet, then please
                     <a class="has-text-link is-underline" href="{% url 'account_signup' %}">sign up</a> first.</p>
-                </div>
+            </div>
             <div class="field">
                 <p class="control">
-                    <textarea class="textarea is-medium is-info has-fixed-size"
-                    placeholder="Add a comment..." disabled></textarea>
+                    <textarea class="textarea is-medium is-info has-fixed-size" placeholder="Add a comment..."
+                        disabled></textarea>
                 </p>
             </div>
             <div class="field">
