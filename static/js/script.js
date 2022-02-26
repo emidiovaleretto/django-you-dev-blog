@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
         const $notification = $delete.parentNode;
-    
+
         $delete.addEventListener('click', () => {
-          $notification.parentNode.removeChild($notification);
+            $notification.parentNode.removeChild($notification);
         });
-      });
+    });
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -32,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    $('.current_year').text(new Date().getFullYear());
 });
