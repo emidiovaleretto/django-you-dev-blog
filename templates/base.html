@@ -67,6 +67,15 @@
   </nav>
   <!-- END NAV -->
 
+  <!-- MESSAGE -->
+  {% for message in messages %}
+  <div class="notification is-success mb-0">
+    <button type="button" class="delete mr-4" aria-label="Delete"></button>
+      {{ message | safe }}
+  </div>
+  {% endfor %}
+  <!-- END MESSAGE -->
+
   <!-- MODAL -->
   <div id="modal" class="modal">
     <div class="modal-background"></div>

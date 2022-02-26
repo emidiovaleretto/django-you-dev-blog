@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
         const $notification = $delete.parentNode;
 
+        setTimeout(function () {
+            $notification.parentNode.removeChild($notification);
+        }, 3000)
+
         $delete.addEventListener('click', () => {
             $notification.parentNode.removeChild($notification);
         });
