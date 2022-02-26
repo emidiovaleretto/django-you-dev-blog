@@ -100,6 +100,11 @@ a.navbar-link::before {
     margin-left: -14px;
 }
 
+a.is-disabled {
+    cursor: not-allowed;
+    pointer-events: auto;
+}
+
 .hero-body {
     background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url("/static/img/hero-image.jpg");
     background-position: center;
