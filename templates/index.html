@@ -82,7 +82,7 @@
             </li>
             {% else %}
             <li class="page-item">
-                <a class="pagination-link" disabled>&laquo;</a>
+                <a class="pagination-link" title="No previous page" disabled>&laquo;</a>
             </li>
             {% endif %}
             {% for page in page_obj.paginator.page_range %}
@@ -102,7 +102,7 @@
             </li>
             {% else %}
             <li class="page-item">
-                <a class="pagination-link" disabled>&raquo;</a>
+                <a class="pagination-link" title="No next page" disabled>&raquo;</a>
             </li>
             {% endif %}
         </ul>
