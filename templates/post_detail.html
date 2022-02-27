@@ -6,6 +6,13 @@
 
 {% block content %}
 
+{% if commented %}
+<div class="notification is-success mb-0">
+    <button class="delete"></button>
+    <p>Thank you! Your comment will be visible after approval.</p>
+</div>
+{% endif %}
+
 <section class="hero is-info is-medium is-bold">
     <div class="hero-body-2"></div>
 </section>
@@ -131,13 +138,6 @@
         <div class="media-content">
             <div class="field">
                 <p class="control">
-                    {% if commented %}
-                    <div class="notification is-success">
-                        <button class="delete"></button>
-                        <p>Thank you! Your comment will be visible after approval.</p>
-                    </div>
-                    {% endif %}
-
                     {% if user.is_authenticated %}
                     <form method="POST" action="">
                         {% csrf_token %}
