@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
         const $notification = $delete.parentNode;
 
-        setTimeout(function () {
-            $notification.parentNode.removeChild($notification);
-        }, 3000)
-
         $delete.addEventListener('click', () => {
             $notification.parentNode.removeChild($notification);
         });
     });
+    
+    // Use JQuery to hide the notification div
+    $(".notification").delay(3000).hide("slow");
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
