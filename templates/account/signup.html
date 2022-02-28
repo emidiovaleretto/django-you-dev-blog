@@ -21,13 +21,13 @@
         </div>
         
         {% if form.errors %}
-        <div class="notification is-warning is-light">
-          <button class="delete"></button>
-            {{ form.non_field_errors }}
-        </div>
+          <div class="notification is-warning is-light">
+            <button class="delete"></button>
+              {{ form.errors }}
+          </div>
         {% endif %}
 
-        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
             {% csrf_token %}
 
           <div class="field">
