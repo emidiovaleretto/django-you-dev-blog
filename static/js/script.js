@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Use JQuery to hide the notification div
-    $(".notification").delay(3000).hide("slow");
+    $(".is-fade").delay(3000).hide("slow");
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
