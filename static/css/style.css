@@ -106,15 +106,15 @@ a.is-disabled {
 }
 
 .hero-body {
-    background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url("/static/img/hero-image.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url("/static/img/hero-image.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 500px;
 }
 
 .hero-body-2 {
-    background-image: url("https://a-static.besthdwallpaper.com/funny-python-coding-wallpaper-3840x2160-84082_54.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0)), url("/static/img/hero-image.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
